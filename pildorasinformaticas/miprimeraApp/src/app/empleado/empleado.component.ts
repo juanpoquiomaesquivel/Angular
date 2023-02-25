@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-empleado',
@@ -14,4 +14,16 @@ import { Component } from '@angular/core';
 })
 export class EmpleadoComponent {
 
+  nombre="Juan";
+  apellido="Diaz";
+  /*private */edad=18;
+  //empresa="Píldoras Informáticas";
+
+  /*getEdad() {
+    return this.edad;
+  }*/
+
+  /*llamaEmpresa(value:String) {
+
+  }*/
 }
