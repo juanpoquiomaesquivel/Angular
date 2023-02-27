@@ -26,4 +26,10 @@ export class EmpleadoComponent {
   /*llamaEmpresa(value:String) {
 
   }*/
+  habilitacionCuadro=true;
+  usuRegistrado=false;
+
+  getRegistroUsuario() {
+    this.usuRegistrado=true;
+  }
 }
