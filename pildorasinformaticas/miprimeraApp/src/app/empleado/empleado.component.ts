@@ -17,7 +17,11 @@ export class EmpleadoComponent {
   nombre="Juan";
   apellido="Diaz";
   /*private */edad=18;
-  //empresa="Píldoras Informáticas";
+  empresa="Píldoras Informáticas";
+
+  /*cambiaEmpresa(event:Event) {
+    this.empresa=(<HTMLInputElement>event.target).value;
+  }*/
 
   /*getEdad() {
     return this.edad;
@@ -26,7 +30,7 @@ export class EmpleadoComponent {
   /*llamaEmpresa(value:String) {
 
   }*/
-  habilitacionCuadro=true;
+  habilitacionCuadro=false;
   usuRegistrado=false;
   textoDeRegistro="No hay nadie registrado"
 
@@ -45,3 +49,4 @@ export class EmpleadoComponent {
     }
   }
 }
+
