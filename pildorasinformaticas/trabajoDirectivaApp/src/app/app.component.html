@@ -1,0 +1,12 @@
+<h1 style="text-align:center">{{titulo}}</h1>
+
+<form>
+  <input type="text" name="nombre" [(ngModel)]="nombre"><br/>
+  <input type="text" name="apellido" [(ngModel)]="apellido"><br/>
+  <input type="submit" value="Registrar" (click)="registrarUsuario()"><br/>
+</form>
+
+<br/>
+<p *ngIf="registrado">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+
+<!-- https://www.youtube.com/watch?v=1NnPbUYZZ5I&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=14 -->
