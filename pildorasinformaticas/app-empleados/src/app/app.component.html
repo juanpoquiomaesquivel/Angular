@@ -31,15 +31,6 @@
 
 <br><br><br>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let empleado of empleados; let i=index">
-        {{i+1}}: {{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
-      </div>
-    </div>
-  </div>
-</div>
+<app-empleado-hijo-c *ngFor="let empleado of empleados; let i=index" [empleadoDeLista]="empleado" [indice]="i"></app-empleado-hijo-c>
 
-<!-- https://www.youtube.com/watch?v=t7C3cbDAdzM&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=16 -->
-<!-- https://www.youtube.com/watch?v=e-RjU6a09Ak&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=17 -->
+<!-- https://www.youtube.com/watch?v=cXMmb2jqTJM&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=19 -->
