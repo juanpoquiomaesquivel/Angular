@@ -3,11 +3,14 @@
 <form>
   <input type="text" name="nombre" [(ngModel)]="nombre"><br/>
   <input type="text" name="apellido" [(ngModel)]="apellido"><br/>
+  <input type="text" name="cargo" [(ngModel)]="cargo"><br/>
   <input type="submit" value="Registrar" (click)="registrarUsuario()"><br/>
 </form>
 
 <br/>
-<p *ngIf="registrado; else sinRegistrar">{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<p *ngIf="registrado; else sinRegistrar">{{mensaje}} con el nombre de {{nombre}} {{apellido}}
+   <!-- y tiene el cargo de <span [ngStyle]="{color: cargo=='director' ? 'red' : 'black'}">{{cargo}}</span></p> -->
+   y tiene el cargo de <span [ngClass]="{paraDirectores:cargo=='director'}">{{cargo}}</span></p>
 <ng-template #sinRegistrar>
   <p>Nadie registrado</p>
 </ng-template>
@@ -20,4 +23,4 @@
   . Entrada {{i+1}}</li>
 </ul>
 
-<!-- https://www.youtube.com/watch?v=nAMX042tfhU&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=15 -->
+<!-- https://www.youtube.com/watch?v=B3kWqrSdmgw&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=18 -->
