@@ -8,15 +8,15 @@ import { ServicioEmpleadosService } from '../servicio-empleados.service';
 })
 export class CaracteristicasEmpleadoCComponent {
 
-  constructor(private miServicio:ServicioEmpleadosService) {
+  /*constructor(private miServicio:ServicioEmpleadosService) {
 
-  }
+  }*/
   
   @Output() caracteristicasEmpleado = new EventEmitter<string>();
   
 
   agregaCaracteristicas(value:string) {
-    this.miServicio.muestraMensaje(value);
+    //this.miServicio.muestraMensaje(value);
     this.caracteristicasEmpleado.emit(value);
   }
 }
