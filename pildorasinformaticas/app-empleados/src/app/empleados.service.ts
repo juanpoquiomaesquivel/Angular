@@ -30,6 +30,10 @@ export class EmpleadosService {
     empleadoModificado.salario = empleado.salario;
   }
 
+  eliminarEmpleado(indice:number) {
+    this.empleados.splice(indice, 1);
+  }
+
   encontrarEmpleado(indice:number) {
 
     let emp:Empleado = this.empleados[indice];
