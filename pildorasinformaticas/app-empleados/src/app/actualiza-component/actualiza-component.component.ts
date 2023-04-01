@@ -7,45 +7,48 @@ import { ServicioEmpleadosService } from '../servicio-empleados.service';
 @Component({
   selector: 'app-actualiza-component',
   templateUrl: './actualiza-component.component.html',
-  styleUrls: ['./actualiza-component.component.css']
+  styleUrls: ['./actualiza-component.component.css'],
 })
 export class ActualizaComponentComponent implements OnInit {
-
   volverHome() {
-    this.router.navigate([""]);
+    this.router.navigate(['']);
   }
 
-  
   titulo = 'Listado de empleados';
 
-  constructor(private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService, private router:Router,
-    private route:ActivatedRoute) {
+  constructor(
+    private miServicio: ServicioEmpleadosService,
+    private empleadosService: EmpleadosService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     // this.empleados= this.empleadosService.empleados;
-
   }
 
-  indice:number;
+  indice: number;
 
   ngOnInit(): void {
-    this.empleados= this.empleadosService.empleados;
+    this.empleados = this.empleadosService.empleados;
 
     this.indice = this.route.snapshot.params['id'];
 
-    let emp:Empleado=this.empleadosService.encontrarEmpleado(this.indice);
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
 
-    this.cuadroNombre=emp.nombre;
-    this.cuadroApellido=emp.apellido;
-    this.cuadroCargo=emp.cargo;
-    this.cuadroSalario=emp.salario;
+    let emp: Empleado = this.empleadosService.encontrarEmpleado(this.indice);
+
+    this.cuadroNombre = emp.nombre;
+    this.cuadroApellido = emp.apellido;
+    this.cuadroCargo = emp.cargo;
+    this.cuadroSalario = emp.salario;
   }
 
-  empleados:Empleado[]=[];
+  empleados: Empleado[] = [];
 
-  cuadroNombre:string="";
-  cuadroApellido:string="";
-  cuadroCargo:string="";
-  cuadroSalario:number=0;
-
+  cuadroNombre: string = '';
+  cuadroApellido: string = '';
+  cuadroCargo: string = '';
+  cuadroSalario: number = 0;
+  /*
   actualizaEmpleado() {
     let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
 
@@ -59,5 +62,24 @@ export class ActualizaComponentComponent implements OnInit {
   eliminaEmpleado() {
     this.empleadosService.eliminarEmpleado(this.indice);
     this.router.navigate([""]);
+  } */
+
+  actualizaEmpleado() {
+    if (this.accion == 1) {
+      let miEmpleado = new Empleado(
+        this.cuadroNombre,
+        this.cuadroApellido,
+        this.cuadroCargo,
+        this.cuadroSalario
+      );
+
+      this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
+    } else {
+      this.empleadosService.eliminarEmpleado(this.indice);
+    }
+
+    this.router.navigate(['']);
   }
+
+  accion: number;
 }
