@@ -9,8 +9,12 @@ export class DataService {
 
   constructor(private httpClient:HttpClient) { }
 
+  cargarEmpleados() {
+    return this.httpClient.get('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json');
+  }
+
   guardarEmpleados(empleados:Empleado[]) {
-    this.httpClient.post('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json', empleados).subscribe(
+    this.httpClient.put('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json', empleados).subscribe(
       response=>console.log("Se han guardado los empleados: " + response),
       error=>console.log("Se han guardado los empleados: " + error)
     );
