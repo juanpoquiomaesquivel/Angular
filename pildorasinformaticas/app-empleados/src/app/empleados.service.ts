@@ -49,6 +49,10 @@ export class EmpleadosService {
 
   eliminarEmpleado(indice: number) {
     this.empleados.splice(indice, 1);
+
+    this.dataService.eliminarEmpleado(indice);
+
+    if (this.empleados != null) this.dataService.guardarEmpleados(this.empleados);
   }
 
   encontrarEmpleado(indice: number) {

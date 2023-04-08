@@ -28,6 +28,15 @@ export class DataService {
       error=>console.log("Error: " + error)
     );
   }
+  
+  eliminarEmpleado(indice:number) {
+    let url = 'https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos/' + indice + '.json';
+
+    this.httpClient.delete(url).subscribe(
+      response=>console.log("Se ha eliminado el empleado: " + response),
+      error=>console.log("Error: " + error)
+    );
+  }
 }
 
-// https://www.youtube.com/watch?v=kNKykk3EuXE&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=36
+// https://www.youtube.com/watch?v=_QFCvFalzug&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=37
