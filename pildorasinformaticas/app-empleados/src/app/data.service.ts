@@ -16,10 +16,18 @@ export class DataService {
   guardarEmpleados(empleados:Empleado[]) {
     this.httpClient.put('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json', empleados).subscribe(
       response=>console.log("Se han guardado los empleados: " + response),
-      error=>console.log("Se han guardado los empleados: " + error)
+      error=>console.log("Error: " + error)
+    );
+  }
+  
+  actulizarEmpleado(indice:number, empleado:Empleado) {
+    let url = 'https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos/' + indice + '.json';
+
+    this.httpClient.put(url, empleado).subscribe(
+      response=>console.log("Se ha modificado el empleado: " + response),
+      error=>console.log("Error: " + error)
     );
   }
 }
 
-// https://www.youtube.com/watch?v=VKWLM70o5Nc&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=32
-// https://www.youtube.com/watch?v=1fgJdayPGJ4&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=33
+// https://www.youtube.com/watch?v=kNKykk3EuXE&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=36
