@@ -1,19 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private loginService:LoginService) { }
 
   cargarEmpleados() {
-    return this.httpClient.get('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json');
+    const token = this.loginService.getIdToken();
+    return this.httpClient.get('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json?auth=' + token);
   }
 
   guardarEmpleados(empleados:Empleado[]) {
+    const token = this.loginService.getIdToken();
     this.httpClient.put('https://mis-clientes-bbc88-default-rtdb.firebaseio.com/datos.json', empleados).subscribe(
       response=>console.log("Se han guardado los empleados: " + response),
       error=>console.log("Error: " + error)
