@@ -19,10 +19,17 @@
       <li class="nav-item">
         <a class="nav-link" href="/contacto">Contacto</a>
       </li>
+      <li class="nav-item" style="margin-left:500px;" *ngIf="!estaLogueado()">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" style="margin-left:500px;" *ngIf="estaLogueado()">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
 
-<!-- https://www.youtube.com/watch?v=HP92RvER-8g&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=29 -->
+<!-- https://www.youtube.com/watch?v=lTwL-6Fg9Fw&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=43 -->
+<!-- https://www.youtube.com/watch?v=n76BmnGkOEc&list=PLU8oAlHdN5BnNAe8zXnuBNzKID39DUwcO&index=44 -->
