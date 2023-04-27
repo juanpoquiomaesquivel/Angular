@@ -1,8 +1,11 @@
 <div class="header">
     <div class="site-image">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.U-M7Mk3OFmLvCg9yNW-ulQHaEK%26pid%3DApi&f=1&ipt=af1a5e430c2040b2aacb40a7da29f9c440d52f4bcc5f1d9c6037b5966297db02&ipo=images" height="240" width="320">
+        <!-- property binding, [] is necesary -->
+        <img [src]="source"
+            height="240" width="320">
     </div>
     <div class="site-slogan">
-        <h2>Your one stop shop for everything.</h2>
+        <h2>{{ slogan }}</h2>
+        <!-- <h2>{{ getSlogan() }}</h2> --> <!-- string interpolation -->
     </div>
 </div>

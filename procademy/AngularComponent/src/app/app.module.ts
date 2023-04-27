@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './Container/container.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
-import { NotificationComponent } from './notification/notification.component'
+import { NotificationComponent } from './notification/notification.component';
+import { SearchComponent } from './search/search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,12 +15,11 @@ import { NotificationComponent } from './notification/notification.component'
     ContainerComponent,
     NavComponent,
     HeaderComponent,
-    NotificationComponent
+    NotificationComponent,
+    SearchComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
